@@ -8,7 +8,7 @@ import MarkdownRenderer from "../MarkdownRenderer/MarkdownRenderer";
 const MessageRow = ({ message }) => (
   <div className={`message-item ${message.role === "assistant" ? "ai-message" : "user-message"}`}>
     <img
-      src={message.role === "assistant" ? assets.gemini_icon : assets.user_icon}
+      src={message.role === "assistant" ? assets.gemini_icon:null}
       alt=""
       className="message-avatar"
     />
@@ -70,7 +70,7 @@ const Main = () => {
     <div className="main">
       <div className="nav">
         <p>NaviAI</p>
-        <img src={assets.user_icon} alt="" />
+        
       </div>
       <div className="main-container">
         {!showResult ? (
@@ -81,7 +81,7 @@ const Main = () => {
               </p>
               <p>How can I help you?</p>
             </div>
-            <div className="cards">
+            {/* <div className="cards">
               <div className="card" onClick={() => onSent("建议一些即将自驾游时可以去的美丽景点")}>
                 <p>建议一些即将自驾游时可以去的美丽景点</p>
                 <img src={assets.compass_icon} alt="" />
@@ -98,7 +98,7 @@ const Main = () => {
                 <p>提升以下代码的可读性</p>
                 <img src={assets.code_icon} alt="" />
               </div>
-            </div>
+            </div> */}
           </>
         ) : (
           <div className="result">
@@ -126,7 +126,7 @@ const Main = () => {
               placeholder="在这里输入提示"
             />
             <div className="search-actions">
-              <img src={assets.gallery_icon} alt="" />
+              {/* <img src={assets.gallery_icon} alt="" />
               <button
                 type="button"
                 onClick={toggleVoiceInput}
@@ -141,7 +141,7 @@ const Main = () => {
                 disabled={!isVoiceSupported || voiceInputStatus === "processing"}
               >
                 <img src={assets.mic_icon} alt="麦克风图标" className="mic-button-icon" />
-              </button>
+              </button> */}
               {isGenerating ? (
                 <img
                   src={assets.send_icon}
