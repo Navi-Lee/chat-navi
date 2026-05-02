@@ -167,7 +167,7 @@ const Main = () => {
               <p>{voiceError || (voiceInputStatus === "recording" ? "请开始说话，点击麦克风结束录音。" : "正在处理语音内容…")}</p>
             </div>
           )}
-          <p className="bottom-info">NaviAI 可能会显示不准确的信息，请仔细检查其回复。</p>
+          <p className="bottom-info">本网站使用国内正规途径api，不会输出任何敏感内容，仅限学习相关技术参考。</p>
         </div>
       </div>
     </div>
