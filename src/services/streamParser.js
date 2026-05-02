@@ -17,7 +17,8 @@ class StreamParser {
     this.currentOnChunk = onChunk;
     
     try {
-      const response = await fetch('http://localhost:3001/api/chat', {
+      const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
+      const response = await fetch(`${apiBaseUrl}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

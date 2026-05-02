@@ -22,8 +22,8 @@
 - **样式**: 自定义 CSS
 
 ### 后端
-- **运行时**: Node.js
-- **HTTP 服务器**: 原生 http/https 模块
+- **运行时**: Node.js（Vercel Serverless Functions）
+- **HTTP 服务**: Vercel API Route（/api/chat）
 - **AI 服务**: 讯飞星火 MaaS API
 
 ## 核心技术方案
@@ -87,13 +87,22 @@ PORT=3001
 2. 注册账号并创建应用
 3. 获取 API Key
 
-### 4. 启动后端服务器
+### 4. 本地后端（可选）
+
+如果你仍然希望本地使用 Node 服务转发：
 
 ```bash
 npm run server
 ```
 
-后端服务器将在 http://localhost:3001 启动。
+Vite 开发服务器已内置 `/api` 代理到 `http://localhost:3001`。
+如果你需要指向其他后端，可在项目根目录添加 Vite 环境变量（例如 `.env.local`）：
+
+```env
+VITE_API_BASE_URL=http://localhost:3001
+```
+
+这样前端会请求指定的服务。
 
 ### 5. 启动前端开发服务器
 
@@ -111,10 +120,19 @@ npm run build
 
 构建产物将生成在 `dist` 目录中。
 
+### 7. 部署到 Vercel
+
+1. 在 Vercel 创建项目并连接该仓库。
+2. 设置环境变量 `XUNFEI_API_KEY`。
+3. 构建命令：`npm run build`，输出目录：`dist`。
+4. 部署后页面会通过 `/api/chat` 调用 Serverless Function。
+
 ## 项目结构
 
 ```
 yuan-Chat/
+├── api/                      # Vercel Serverless Functions
+│   └── chat.js              # SSE 转发接口
 ├── public/                    # 静态资源
 ├── src/
 │   ├── assets/               # 图片和图标等资源
