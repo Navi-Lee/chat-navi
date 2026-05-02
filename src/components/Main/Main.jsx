@@ -69,7 +69,7 @@ const Main = () => {
   return (
     <div className="main">
       <div className="nav">
-        <p>yuanAI</p>
+        <p>NaviAI</p>
         <img src={assets.user_icon} alt="" />
       </div>
       <div className="main-container">
@@ -77,7 +77,7 @@ const Main = () => {
           <>
             <div className="greet">
               <p>
-                <span>hello, yuan</span>
+                <span>hello, Navi</span>
               </p>
               <p>How can I help you?</p>
             </div>
@@ -167,7 +167,7 @@ const Main = () => {
               <p>{voiceError || (voiceInputStatus === "recording" ? "请开始说话，点击麦克风结束录音。" : "正在处理语音内容…")}</p>
             </div>
           )}
-          <p className="bottom-info">yuanAI 可能会显示不准确的信息，请仔细检查其回复。</p>
+          <p className="bottom-info">NaviAI 可能会显示不准确的信息，请仔细检查其回复。</p>
         </div>
       </div>
     </div>
